@@ -14,10 +14,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 // PÁGINA WEB
-Route::get('/', 'AppController@inicio');
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
+// Auth::routes();
+
+Route::post('registerjwt', 'UserController@register');
+
+Route::post('loginjwt', 'UserController@authenticate');
+
+
+Route::get('/', 'AppController@index');
 Route::resource('/marcas', 'MarcaController');
 
 // PÁGINA PARA GESTIONAR LAS SUCURSALES (CRUD)
-Route::get('gestor/sucursales', function () {
-    return view('pages.sucursales');
-});
+// Route::get('gestor/sucursales', function () {
+//     return view('pages.sucursales');
+// });
+
+// Route::get('get', 'UserController@getAuthenticatedUser');
+
+Route::get('gestor/sucursales', 'SucursalController@index');
+
+Route::get('/home', 'HomeController@index')->name('home');

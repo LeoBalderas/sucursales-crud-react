@@ -24,8 +24,6 @@ class SucursalControllerTest extends TestCase
     /** @test */
     public function test_list_sucursales()
     {
-        $this->withoutExceptionHandling();
-
         factory(Sucursale::class, 3)->create(); // Datos de prueba
 
         $response = $this->get('/api/sucursales/list');
@@ -37,8 +35,6 @@ class SucursalControllerTest extends TestCase
     /** @test */
     public function test_create_sucursal()
     {
-        $this->withoutExceptionHandling();
-
         // Datos de prueba
         $nombre = $this->faker->name;
         $direccion = $this->faker->name;
@@ -64,8 +60,6 @@ class SucursalControllerTest extends TestCase
     /** @test */
     public function test_update_sucursal()
     {
-        $this->withoutExceptionHandling();
-
         // Datos de prueba
         $sucursal = factory(Sucursale::class)->create(); 
 
@@ -91,8 +85,6 @@ class SucursalControllerTest extends TestCase
     /** @test */
     public function test_delete_sucursal()
     {
-        $this->withoutExceptionHandling();
-
         $sucursal = factory(Sucursale::class)->create(); // Datos de prueba
 
         $response = $this->delete('/api/sucursal/delete/' . $sucursal->Cv_Sucursal);

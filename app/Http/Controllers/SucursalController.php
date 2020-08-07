@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Sucursale;
+use App\Http\Controllers\UserController;
 
 class SucursalController extends Controller
 {
+
+  public function index() {
+    $token = UserController::getAuthenticatedUser();
+
+    return view('pages.sucursales', compact('token'));
+  }
+
     public function getAll() {
         return Sucursale::all();
     }

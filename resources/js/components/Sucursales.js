@@ -29,14 +29,36 @@ export default class Sucursales extends Component {
     }
 
     loadDataSucursal() {
-        axios.get(baseUrl + 'api/sucursales/list').then(response => {
-            this.setState({
-                sucursales: response.data
-            })
-        }).catch(error => {
-            alert("Error " + error)
-        })
+
+        var token = document.querySelector('#token').value;
+
+        $.ajax({
+            url: baseUrl + 'api/sucursales/list',
+            type: 'GET',
+            contentType: 'application/json',
+            headers: {
+                'Authorization': 'Bearer <' + token + '>'
+            },
+            success: function (response) {
+                this.setState({
+                    sucursales: response.data
+                })
+            },
+            error: function (error) {
+                alert("Error " + error)
+            }
+        });
     }
+
+    // loadDataSucursal() {
+    //     axios.get(baseUrl + 'api/sucursales/list').then(response => {
+    //         this.setState({
+    //             sucursales: response.data
+    //         })
+    //     }).catch(error => {
+    //         alert("Error " + error)
+    //     })
+    // }
 
     // Funciones onChange que actualiza los datos del formulario
     // Campo de nombre

@@ -18,11 +18,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Rutas API para el gestor de sucursales, utilizando el controlador SucursalController
 
-// Rutas API para el gestor de sucursales, utilizando el controlador SucursalController.abnf
+Route::group(['middleware' => ['jwt.verify']], function() {
+    /*AÑADE AQUI LAS RUTAS QUE QUIERAS PROTEGER CON JWT*/
+
+    // Listar las sucursales
+    Route::get('sucursales/list','SucursalController@getAll');
+
+});
 
 // Listar las sucursales
-Route::get('sucursales/list','SucursalController@getAll');
+// Route::get('sucursales/list','SucursalController@getAll');
 // Crear una sucursal
 Route::post('sucursal/create','SucursalController@create');
 // Actualizar una sucursal

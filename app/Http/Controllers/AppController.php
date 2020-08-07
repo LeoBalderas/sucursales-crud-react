@@ -11,4 +11,10 @@ class AppController extends Controller
     { 
         return view('web.secciones.inicio');
     }
+
+    public function index()
+    { 
+        return view('web.secciones.index');
+    }
+    
 }

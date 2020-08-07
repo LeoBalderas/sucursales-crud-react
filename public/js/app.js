@@ -65922,16 +65922,33 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "loadDataSucursal",
     value: function loadDataSucursal() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(baseUrl + 'api/sucursales/list').then(function (response) {
-        _this2.setState({
-          sucursales: response.data
-        });
-      })["catch"](function (error) {
-        alert("Error " + error);
+      var token = document.querySelector('#token').value;
+      $.ajax({
+        url: baseUrl + 'api/sucursales/list',
+        type: 'GET',
+        contentType: 'application/json',
+        headers: {
+          'Authorization': 'Bearer <' + token + '>'
+        },
+        success: function success(response) {
+          this.setState({
+            sucursales: response.data
+          });
+        },
+        error: function error(_error) {
+          alert("Error " + _error);
+        }
       });
-    } // Funciones onChange que actualiza los datos del formulario
+    } // loadDataSucursal() {
+    //     axios.get(baseUrl + 'api/sucursales/list').then(response => {
+    //         this.setState({
+    //             sucursales: response.data
+    //         })
+    //     }).catch(error => {
+    //         alert("Error " + error)
+    //     })
+    // }
+    // Funciones onChange que actualiza los datos del formulario
     // Campo de nombre
 
   }, {
@@ -65960,7 +65977,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
@@ -65978,7 +65995,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         className: "btn btn-primary col-md-4 float-right",
         onClick: function onClick() {
-          return _this3.showModalCreate();
+          return _this2.showModalCreate();
         }
       }, "Crear Sucursal"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-hover"
@@ -66019,7 +66036,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         className: "btn btn-primary",
         onClick: function onClick() {
-          return _this3.sendNetworkDelete();
+          return _this2.sendNetworkDelete();
         }
       }, "Eliminar"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal fade",
@@ -66079,7 +66096,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         "class": "btn btn-primary",
         onClick: function onClick() {
-          return _this3.sendNetworkUpdate();
+          return _this2.sendNetworkUpdate();
         }
       }, "Actualizar") :
       /*#__PURE__*/
@@ -66088,7 +66105,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         "class": "btn btn-primary",
         onClick: function onClick() {
-          return _this3.sendNetworkCreate();
+          return _this2.sendNetworkCreate();
         }
       }, "Guardar")))))));
     }
@@ -66107,7 +66124,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "sendNetworkCreate",
     value: function sendNetworkCreate() {
-      var _this4 = this;
+      var _this3 = this;
 
       var data = new FormData();
       data.append('nombre', this.state.nombre);
@@ -66117,7 +66134,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         if (response.data.success == true) {
           alert(response.data.message); // cargar datos de nuevo
 
-          _this4.loadDataSucursal(); // para cerrar el modal
+          _this3.loadDataSucursal(); // para cerrar el modal
 
 
           $("#formModal").modal("hide");
@@ -66142,7 +66159,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "sendNetworkUpdate",
     value: function sendNetworkUpdate() {
-      var _this5 = this;
+      var _this4 = this;
 
       var dataSucursal = {
         nombre: this.state.nombre,
@@ -66153,7 +66170,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         if (response.data.success == true) {
           alert(response.data.message); // cargar datos de nuevo
 
-          _this5.loadDataSucursal(); // para cerrar el modal
+          _this4.loadDataSucursal(); // para cerrar el modal
 
 
           $("#formModal").modal("hide");
@@ -66174,13 +66191,13 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "sendNetworkDelete",
     value: function sendNetworkDelete() {
-      var _this6 = this;
+      var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"](baseUrl + 'api/sucursal/delete/' + this.state.idSucursal).then(function (response) {
         if (response.data.success == true) {
           alert(response.data.message); // cargar datos de nuevo
 
-          _this6.loadDataSucursal(); // para cerrar el modal
+          _this5.loadDataSucursal(); // para cerrar el modal
 
 
           $("#deleteModal").modal("hide");
@@ -66192,18 +66209,18 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderList",
     value: function renderList() {
-      var _this7 = this;
+      var _this6 = this;
 
       return this.state.sucursales.map(function (data) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Cv_Sucursal), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Nombre), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Direccion), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Telefono), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-dark-green",
           onClick: function onClick() {
-            return _this7.showModalEdit(data);
+            return _this6.showModalEdit(data);
           }
         }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-danger",
           onClick: function onClick() {
-            return _this7.showModalDelete(data);
+            return _this6.showModalDelete(data);
           }
         }, "Eliminar")));
       });
