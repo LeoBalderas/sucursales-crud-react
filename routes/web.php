@@ -25,8 +25,9 @@ Route::get('/register', function () {
 // Auth::routes();
 
 Route::post('registerjwt', 'UserController@register');
-
 Route::post('loginjwt', 'UserController@authenticate');
+Route::post('logout', 'UserController@logOut');
+Route::get('test', 'UserController@test');
 
 
 Route::get('/', 'AppController@index');

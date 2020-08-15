@@ -11,9 +11,9 @@ class SucursalController extends Controller
 {
 
   public function index() {
-    $token = UserController::getAuthenticatedUser();
+    // $token = UserController::getAuthenticatedUser();
 
-    return view('pages.sucursales', compact('token'));
+    return view('pages.sucursales');
   }
 
     public function getAll() {

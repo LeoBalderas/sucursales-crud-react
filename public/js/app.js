@@ -65928,7 +65928,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: 'GET',
         contentType: 'application/json',
         headers: {
-          'Authorization': 'Bearer <' + token + '>'
+          'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvc3VjdXJzYWxlcy1jcnVkLXJlYWN0XC9wdWJsaWNcL2xvZ2luand0IiwiaWF0IjoxNTk2ODU2MzM5LCJleHAiOjE1OTY4NTk5MzksIm5iZiI6MTU5Njg1NjMzOSwianRpIjoicllCWGNNeFZ0dUdKcG85WCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.Ada0V28Xy5ocHsBmdHRVyEzELyNnzRp3oaaKcBUgzF0'
         },
         success: function success(response) {
           this.setState({
