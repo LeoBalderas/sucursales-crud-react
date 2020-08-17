@@ -8,10 +8,6 @@
 
 @section('contenidoPagina')
 
-    <div>
-        {{-- <input id="token" type="hidden" value="{{ $token }}"> --}}
-    </div>
-
     <div id="sucursales"></div>
     
 @stop

@@ -19,7 +19,7 @@
     <hr class="my-4">
   
   <div class="pt-2">
-    <a href="/sucursales-crud-react/public/login" class="btn btn-dark waves-effect">INICIO DE SESIÓN<span class="fas fa-user ml-1"></span></a>
+    <a href="/login" class="btn btn-dark waves-effect">INICIO DE SESIÓN<span class="fas fa-user ml-1"></span></a>
   </div>
   <!-- <div class="pt-2">
       <a href="/sucursales-crud-react/public/register" class="btn btn-blue waves-effect">REGISTRO<span class="fas fa-user ml-1"></span></a>

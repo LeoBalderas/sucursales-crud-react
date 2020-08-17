@@ -30,16 +30,10 @@ Route::post('logout', 'UserController@logOut');
 Route::get('test', 'UserController@test');
 
 
-Route::get('/', 'AppController@index');
+Route::get('/', 'AppController@inicio');
 Route::resource('/marcas', 'MarcaController');
 
 // PÁGINA PARA GESTIONAR LAS SUCURSALES (CRUD)
-// Route::get('gestor/sucursales', function () {
-//     return view('pages.sucursales');
-// });
-
-// Route::get('get', 'UserController@getAuthenticatedUser');
-
 Route::get('gestor/sucursales', 'SucursalController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');

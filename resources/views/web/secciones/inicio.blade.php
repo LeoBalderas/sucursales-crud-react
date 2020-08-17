@@ -37,10 +37,10 @@
     <hr class="my-4">
   
     <div class="pt-2">
-      <a href="/sucursales-crud-react/public/marcas" class="btn btn-cyan waves-effect">Marcas <span class="fas fa-car ml-1"></span></a>
+      <a href="/marcas" class="btn btn-cyan waves-effect">Marcas <span class="fas fa-car ml-1"></span></a>
     </div>
     <div class="pt-2">
-      <a href="/sucursales-crud-react/public/gestor/sucursales" class="btn btn-dark waves-effect">Sucursales <span class="fas fa-building ml-1"></span></a>
+      <a href="/gestor/sucursales" class="btn btn-dark waves-effect">Sucursales <span class="fas fa-building ml-1"></span></a>
     </div>
   
   </div>

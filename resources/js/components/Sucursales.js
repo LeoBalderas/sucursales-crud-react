@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-const baseUrl = "http://localhost:8080/sucursales-crud-react/public/"
+// const baseUrl = "http://localhost:8080/sucursales-crud-react/public/"
+const baseUrl = "http://127.0.0.1:8000/"
+
 
 export default class Sucursales extends Component {
 
@@ -28,37 +30,37 @@ export default class Sucursales extends Component {
         this.loadDataSucursal()
     }
 
-    loadDataSucursal() {
-
-        var token = document.querySelector('#token').value;
-
-        $.ajax({
-            url: baseUrl + 'api/sucursales/list',
-            type: 'GET',
-            contentType: 'application/json',
-            headers: {
-                'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvc3VjdXJzYWxlcy1jcnVkLXJlYWN0XC9wdWJsaWNcL2xvZ2luand0IiwiaWF0IjoxNTk2ODU2MzM5LCJleHAiOjE1OTY4NTk5MzksIm5iZiI6MTU5Njg1NjMzOSwianRpIjoicllCWGNNeFZ0dUdKcG85WCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.Ada0V28Xy5ocHsBmdHRVyEzELyNnzRp3oaaKcBUgzF0'
-            },
-            success: function (response) {
-                this.setState({
-                    sucursales: response.data
-                })
-            },
-            error: function (error) {
-                alert("Error " + error)
-            }
-        });
-    }
-
     // loadDataSucursal() {
-    //     axios.get(baseUrl + 'api/sucursales/list').then(response => {
-    //         this.setState({
-    //             sucursales: response.data
-    //         })
-    //     }).catch(error => {
-    //         alert("Error " + error)
-    //     })
+
+    //     var token = document.querySelector('#token').value;
+
+    //     $.ajax({
+    //         url: baseUrl + 'api/sucursales/list',
+    //         type: 'GET',
+    //         contentType: 'application/json',
+    //         headers: {
+    //             'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvc3VjdXJzYWxlcy1jcnVkLXJlYWN0XC9wdWJsaWNcL2xvZ2luand0IiwiaWF0IjoxNTk2ODU2MzM5LCJleHAiOjE1OTY4NTk5MzksIm5iZiI6MTU5Njg1NjMzOSwianRpIjoicllCWGNNeFZ0dUdKcG85WCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.Ada0V28Xy5ocHsBmdHRVyEzELyNnzRp3oaaKcBUgzF0'
+    //         },
+    //         success: function (response) {
+    //             this.setState({
+    //                 sucursales: response.data
+    //             })
+    //         },
+    //         error: function (error) {
+    //             alert("Error " + error)
+    //         }
+    //     });
     // }
+
+    loadDataSucursal() {
+        axios.get(baseUrl + 'api/sucursales/list').then(response => {
+            this.setState({
+                sucursales: response.data
+            })
+        }).catch(error => {
+            alert("Error " + error)
+        })
+    }
 
     // Funciones onChange que actualiza los datos del formulario
     // Campo de nombre

@@ -65885,8 +65885,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+ // const baseUrl = "http://localhost:8080/sucursales-crud-react/public/"
 
-var baseUrl = "http://localhost:8080/sucursales-crud-react/public/";
+var baseUrl = "http://127.0.0.1:8000/";
 
 var Sucursales = /*#__PURE__*/function (_Component) {
   _inherits(Sucursales, _Component);
@@ -65918,37 +65919,39 @@ var Sucursales = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.loadDataSucursal();
-    }
+    } // loadDataSucursal() {
+    //     var token = document.querySelector('#token').value;
+    //     $.ajax({
+    //         url: baseUrl + 'api/sucursales/list',
+    //         type: 'GET',
+    //         contentType: 'application/json',
+    //         headers: {
+    //             'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvc3VjdXJzYWxlcy1jcnVkLXJlYWN0XC9wdWJsaWNcL2xvZ2luand0IiwiaWF0IjoxNTk2ODU2MzM5LCJleHAiOjE1OTY4NTk5MzksIm5iZiI6MTU5Njg1NjMzOSwianRpIjoicllCWGNNeFZ0dUdKcG85WCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.Ada0V28Xy5ocHsBmdHRVyEzELyNnzRp3oaaKcBUgzF0'
+    //         },
+    //         success: function (response) {
+    //             this.setState({
+    //                 sucursales: response.data
+    //             })
+    //         },
+    //         error: function (error) {
+    //             alert("Error " + error)
+    //         }
+    //     });
+    // }
+
   }, {
     key: "loadDataSucursal",
     value: function loadDataSucursal() {
-      var token = document.querySelector('#token').value;
-      $.ajax({
-        url: baseUrl + 'api/sucursales/list',
-        type: 'GET',
-        contentType: 'application/json',
-        headers: {
-          'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvc3VjdXJzYWxlcy1jcnVkLXJlYWN0XC9wdWJsaWNcL2xvZ2luand0IiwiaWF0IjoxNTk2ODU2MzM5LCJleHAiOjE1OTY4NTk5MzksIm5iZiI6MTU5Njg1NjMzOSwianRpIjoicllCWGNNeFZ0dUdKcG85WCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.Ada0V28Xy5ocHsBmdHRVyEzELyNnzRp3oaaKcBUgzF0'
-        },
-        success: function success(response) {
-          this.setState({
-            sucursales: response.data
-          });
-        },
-        error: function error(_error) {
-          alert("Error " + _error);
-        }
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(baseUrl + 'api/sucursales/list').then(function (response) {
+        _this2.setState({
+          sucursales: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
       });
-    } // loadDataSucursal() {
-    //     axios.get(baseUrl + 'api/sucursales/list').then(response => {
-    //         this.setState({
-    //             sucursales: response.data
-    //         })
-    //     }).catch(error => {
-    //         alert("Error " + error)
-    //     })
-    // }
-    // Funciones onChange que actualiza los datos del formulario
+    } // Funciones onChange que actualiza los datos del formulario
     // Campo de nombre
 
   }, {
@@ -65977,7 +65980,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
@@ -65995,7 +65998,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         className: "btn btn-primary col-md-4 float-right",
         onClick: function onClick() {
-          return _this2.showModalCreate();
+          return _this3.showModalCreate();
         }
       }, "Crear Sucursal"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-hover"
@@ -66036,7 +66039,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         className: "btn btn-primary",
         onClick: function onClick() {
-          return _this2.sendNetworkDelete();
+          return _this3.sendNetworkDelete();
         }
       }, "Eliminar"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal fade",
@@ -66096,7 +66099,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         "class": "btn btn-primary",
         onClick: function onClick() {
-          return _this2.sendNetworkUpdate();
+          return _this3.sendNetworkUpdate();
         }
       }, "Actualizar") :
       /*#__PURE__*/
@@ -66105,7 +66108,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         type: "button",
         "class": "btn btn-primary",
         onClick: function onClick() {
-          return _this2.sendNetworkCreate();
+          return _this3.sendNetworkCreate();
         }
       }, "Guardar")))))));
     }
@@ -66124,7 +66127,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "sendNetworkCreate",
     value: function sendNetworkCreate() {
-      var _this3 = this;
+      var _this4 = this;
 
       var data = new FormData();
       data.append('nombre', this.state.nombre);
@@ -66134,7 +66137,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         if (response.data.success == true) {
           alert(response.data.message); // cargar datos de nuevo
 
-          _this3.loadDataSucursal(); // para cerrar el modal
+          _this4.loadDataSucursal(); // para cerrar el modal
 
 
           $("#formModal").modal("hide");
@@ -66159,7 +66162,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "sendNetworkUpdate",
     value: function sendNetworkUpdate() {
-      var _this4 = this;
+      var _this5 = this;
 
       var dataSucursal = {
         nombre: this.state.nombre,
@@ -66170,7 +66173,7 @@ var Sucursales = /*#__PURE__*/function (_Component) {
         if (response.data.success == true) {
           alert(response.data.message); // cargar datos de nuevo
 
-          _this4.loadDataSucursal(); // para cerrar el modal
+          _this5.loadDataSucursal(); // para cerrar el modal
 
 
           $("#formModal").modal("hide");
@@ -66191,13 +66194,13 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "sendNetworkDelete",
     value: function sendNetworkDelete() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"](baseUrl + 'api/sucursal/delete/' + this.state.idSucursal).then(function (response) {
         if (response.data.success == true) {
           alert(response.data.message); // cargar datos de nuevo
 
-          _this5.loadDataSucursal(); // para cerrar el modal
+          _this6.loadDataSucursal(); // para cerrar el modal
 
 
           $("#deleteModal").modal("hide");
@@ -66209,18 +66212,18 @@ var Sucursales = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderList",
     value: function renderList() {
-      var _this6 = this;
+      var _this7 = this;
 
       return this.state.sucursales.map(function (data) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Cv_Sucursal), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Nombre), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Direccion), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Telefono), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-dark-green",
           onClick: function onClick() {
-            return _this6.showModalEdit(data);
+            return _this7.showModalEdit(data);
           }
         }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-danger",
           onClick: function onClick() {
-            return _this6.showModalDelete(data);
+            return _this7.showModalDelete(data);
           }
         }, "Eliminar")));
       });
